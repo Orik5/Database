@@ -1,0 +1,13 @@
+spring:
+  datasource:
+   url: jdbc:msql://localhost/tamplate?useSSL=false
+   username: root
+   password: golovach
+   driven-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+      naming-startegy: org.hibernate.cfg.ImprovedNamingStrategy
+  server:
+   port: 8080

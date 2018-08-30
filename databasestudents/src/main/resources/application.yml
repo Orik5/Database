@@ -2,7 +2,7 @@ spring:
   datasource:
    url: jdbc:msql://localhost/tamplate?useSSL=false
    username: root
-   password: golovach
+   password: root
    driven-class-name: com.mysql.jdbc.Driver
   jpa:
     show-sql: true

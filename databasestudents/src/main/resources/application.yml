@@ -1,6 +1,6 @@
 spring:
   datasource:
-   url: jdbc:msql://localhost/tamplate?useSSL=false
+   url: jdbc:msql://localhost/tamplate?createDatabaseIfNotExist=true&useSSL=false
    username: root
    password: root
    driven-class-name: com.mysql.jdbc.Driver

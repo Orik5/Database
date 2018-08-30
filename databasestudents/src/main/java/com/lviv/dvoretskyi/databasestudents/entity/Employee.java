@@ -4,27 +4,31 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "employee")
 public class Employee {
 
-  @javax.persistence.Id
+  @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
-  private int Id;
+  private int id;
   @Column
   private String city;
+  @Column
   private String email;
+  @Column
   private String login;
+  @Column
   private int storageTime;
 
   public Employee() {
   }
 
   public Employee(int id, String city, String email, String login, int storageTime) {
-    Id = id;
+    this.id = id;
     this.city = city;
     this.email = email;
     this.login = login;
@@ -32,11 +36,11 @@ public class Employee {
   }
 
   public int getId() {
-    return Id;
+    return id;
   }
 
   public void setId(int id) {
-    Id = id;
+    this.id = id;
   }
 
   public String getCity() {

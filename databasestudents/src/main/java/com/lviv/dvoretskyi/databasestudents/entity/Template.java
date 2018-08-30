@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -11,10 +12,11 @@ import javax.persistence.Table;
 
 public class Template {
 
-  @javax.persistence.Id
+  @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-  private int Id;
+  @Column
+  private int id;
+  @Column
   private int name;
   @Column(name = "createdby")
   private String CreatedBy;
@@ -26,11 +28,11 @@ public class Template {
 
 
   public int getId() {
-    return Id;
+    return id;
   }
 
   public void setId(int id) {
-    Id = id;
+    this.id = id;
   }
 
   public int getName() {

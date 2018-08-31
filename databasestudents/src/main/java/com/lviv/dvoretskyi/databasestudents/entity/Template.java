@@ -1,5 +1,6 @@
 package com.lviv.dvoretskyi.databasestudents.entity;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,14 +25,24 @@ public class Template {
   @Column(name = "createdby")
   private String CreatedBy;
   @OneToMany(mappedBy = "template")
-  TemplateChecklist templateChecklist;
+  private List<TemplateChecklist> templateChecklistList;
+  @OneToMany(mappedBy = "template")
+  private List<TemplateTracking>templateTrackings;
 
   public Template(int name, String createdBy) {
     this.name = name;
     CreatedBy = createdBy;
   }
-
   public Template() {
+  }
+
+  public List<TemplateTracking> getTemplateTrackings() {
+    return templateTrackings;
+  }
+
+  public void setTemplateTrackings(
+      List<TemplateTracking> templateTrackings) {
+    this.templateTrackings = templateTrackings;
   }
 
   public int getId() {
@@ -58,5 +69,12 @@ public class Template {
     CreatedBy = createdBy;
   }
 
+  public List<TemplateChecklist> getTemplateChecklistList() {
+    return templateChecklistList;
+  }
 
+  public void setTemplateChecklistList(
+      List<TemplateChecklist> templateChecklistList) {
+    this.templateChecklistList = templateChecklistList;
+  }
 }

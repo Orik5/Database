@@ -1,10 +1,12 @@
 package com.lviv.dvoretskyi.databasestudents.entity;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +25,8 @@ public class Employee {
   private String login;
   @Column
   private int storageTime;
+  @OneToMany(mappedBy = "Employee")
+  List<TemplateTrackingEmployee>templateTrackingEmployees;
 
   public Employee() {
   }
@@ -33,6 +37,15 @@ public class Employee {
     this.email = email;
     this.login = login;
     this.storageTime = storageTime;
+  }
+
+  public List<TemplateTrackingEmployee> getTemplateTrackingEmployees() {
+    return templateTrackingEmployees;
+  }
+
+  public void setTemplateTrackingEmployees(
+      List<TemplateTrackingEmployee> templateTrackingEmployees) {
+    this.templateTrackingEmployees = templateTrackingEmployees;
   }
 
   public int getId() {

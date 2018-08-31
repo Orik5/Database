@@ -19,7 +19,48 @@ public class TemplateChecklist {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
   @ManyToOne
-  @JoinColumn(name = "id",nullable = false)
-  private List<Template> templateList;
+  @JoinColumn(name = "templateId")
+  private Template template;
+  private String skype;
+  private String mobile;
 
+  public TemplateChecklist(String skype, String mobile) {
+    this.skype = skype;
+    this.mobile = mobile;
+  }
+
+  public TemplateChecklist() {
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public Template getTemplate() {
+    return template;
+  }
+
+  public void setTemplate(Template template) {
+    this.template = template;
+  }
+
+  public String getSkype() {
+    return skype;
+  }
+
+  public void setSkype(String skype) {
+    this.skype = skype;
+  }
+
+  public String getMobile() {
+    return mobile;
+  }
+
+  public void setMobile(String mobile) {
+    this.mobile = mobile;
+  }
 }

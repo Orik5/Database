@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,12 +23,16 @@ public class Template {
   private int name;
   @Column(name = "createdby")
   private String CreatedBy;
+  @OneToMany(mappedBy = "template")
+  TemplateChecklist templateChecklist;
 
   public Template(int name, String createdBy) {
     this.name = name;
     CreatedBy = createdBy;
   }
 
+  public Template() {
+  }
 
   public int getId() {
     return id;
@@ -51,6 +58,5 @@ public class Template {
     CreatedBy = createdBy;
   }
 
-  public Template() {
-  }
+
 }
